@@ -11,6 +11,7 @@
 
 <body style="background-color:#b2f8dd">
     <header>
+    <h1 style = "font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:50px">The Tech Blog</h1>
     <nav style="background-color:#10e091" class="navbar" role="navigation" aria-label="main navigation">
       
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -22,8 +23,8 @@
        
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <button class="navbar-item" id="homepage">Home</button>
-        <button class="navbar-item" id="dashboard">Dashboard</button>
+        <a class="navbar-item" id="homepage"><strong>Home</strong></a>
+        <a class="navbar-item" id="dashboard"><strong>Dashboard</strong></a>
       <div class="navbar-end">
     <div class="navbar-item">
 
@@ -39,7 +40,7 @@
       <strong>Sign up</strong>
     </a>
     <a href="/login" id="login-link" class="button is-light">
-      Log in
+     <strong>Log in</strong>
     </a>
   </div>
 {{/if}}
@@ -51,8 +52,8 @@
     </nav>
     </header>
 
-    <main>
-
+    <main >
+      
         {{{body}}}
 
     </main>

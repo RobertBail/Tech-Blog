@@ -11,22 +11,13 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up Handlebars.js engine with custom helpers (needed?)
-const hbs = exphbs.create({ 
-  helpers: {
-    //eq: function (v1, v2) {
-        //return v1 === v2;
-    //},
-    //json: function (context) {
-      //return JSON.stringify(context);
-    //},
-}
-});
+// Set up Handlebars.js engine with custom helpers 
+const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 300000,
+    maxAge: 600000,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
