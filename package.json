@@ -8,10 +8,7 @@
     "start": "node server.js",
     "seed": "node seeds/index.js"
   },
-  "engines": {
-    "node": "v21.1.0",
-    "npm": "8.3.1"
-  },
+ 
   "keywords": [],
   "author": "",
   "license": "ISC",
