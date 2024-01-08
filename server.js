@@ -9,7 +9,7 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT ||  8080);
 
 // Set up Handlebars.js engine with custom helpers 
 const hbs = exphbs.create({ helpers });
@@ -31,20 +31,27 @@ const sess = {
 
 app.use(session(sess));
 
-// Inform Express.js on which template engine to use
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Inform Express.js on which template engine to use
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+
 app.get('/', (req, res) => {
-  const loggedInContext = { loggedIn: req.session.loggedIn || false };
-  res.render('homepage', loggedInContext);
+  res.render('homepage', { loggedIn: true });
+});
+app.use(routes);
+
+app.get('/', (req, res) => {
+  res.render('homepage');
 });
 
-app.use(routes);
+app.get('/dashboard', (req, res) => {
+  res.render('dashboard');
+});
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
