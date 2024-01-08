@@ -1,9 +1,32 @@
-<main style="background-color:#b2f8dd; height: 100vh; margin-bottom: 30px;">
+<main style="background-color:#b2f8dd; height: 100vh; width: 200%; margin-left: 5px; margin-bottom: 30px;">
 <div style="width:45%; display:inline-block; padding-top: 10px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; padding-bottom: 200px">
-<h2 style="font-weight: 500; font-size: 250%; padding-bottom: 20px; padding-left: 20px">
-      Welcome to The Tech Blog!
+<h2 style="font-weight: 500; font-size: 250%; padding-bottom: 20px; padding-left: 20px; color:#0e012c">
+      Welcome to The Tech Blog {{user.username}}!
     </h2>
+<div class="posts">
+  {{#each posts}}
+  <article class="card">
+    <div class="card-header flex-row justify-space-between" style="border-style:inset; border-color: #0e012c">
+      <h2>
+        <a href="/post/{{id}}">{{title}}:</a>
+      </h2>
+      <div style = "font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:#0e012c">
+        Posted by {{user.username}} on {{format_date created_at}}
+        <p class="card-body" >{{content}}</p>
+      </div>
+    </div>
+    <div class="card-body">
+      {{body}}
+    </div>
+  </article>
+  {{/each}}
+</div>
 
+<button type="submit" class="button is-success" style = "background-color:#0e012c; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+  <a class="link" style ="color: #FFDF00" href="/dashboard/new">Add New Post</a>
+</button>
+
+<script src="/js/add-post.js"></script>
 
 
 </div>
