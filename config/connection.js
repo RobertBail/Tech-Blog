@@ -5,7 +5,7 @@ let sequelize;
 
 if(process.env.JAWSDB_URL){
     sequelize = new Sequelize(process.env.JAWSDB_URL,{
-      dialect: 'postgres',
+      dialect: 'mysql',
       
     });
 } else {
