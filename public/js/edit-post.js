@@ -3,7 +3,7 @@ async function editFormHandler(event) {
 
     const title = document.querySelector('input[name="post-title"]').value;
     const content = document.querySelector('input[name="content"]').value;
-    
+
     //console.log(title);
     //console.log(content);
 
@@ -11,7 +11,7 @@ async function editFormHandler(event) {
       window.location.toString().split('/').length - 1
     ];
       
-      const response = await fetch(`/api/posts/:id`, {
+      const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
         title,
@@ -23,12 +23,12 @@ async function editFormHandler(event) {
       });
       
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/dashboard/');
       } else {
         alert(response.statusText);
       }
 
 }
 
-document.querySelector('#edit-post-form').addEventListener('click', editFormHandler);
+document.querySelector('.edit-post-form').addEventListener('click', editFormHandler);
 
