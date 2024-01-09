@@ -8,8 +8,10 @@ const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+const PORT = process.env.PORT || 3001;
 const app = express();
-var PORT = process.env.PORT || 3001;
+app.set("port", PORT);
+
 
 // Set up Handlebars.js engine with custom helpers 
 const hbs = exphbs.create({ helpers });
@@ -45,6 +47,15 @@ app.get('/', (req, res) => {
 });
 
 app.use(routes);
+
+app.get('/dashboard', (req, res) => {
+  res.render('dashboard');
+});
+
+app.get('/post', (req, res) => {
+  res.render('single-post');
+});
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));

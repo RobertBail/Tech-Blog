@@ -21,23 +21,3 @@
 {{#if loggedIn}}
 <script src="/js/comment.js"></script>
 {{/if}}
-
-
-
-<div class="card" style ="padding-top: 5px; margin-left: 5px;">
-    <h3 class="card-header" style = "font-size: 20px; color:#0e012c; margin-left: 5px;">Edit Post</h3>
-    <form class="card-body edit-post-form" style ="padding-top: 5px; margin-left: 5px;">
-        <label for="post-title" class="form-label">Title</label>
-        <input name="post-title" type="text" value="{{post.title}}" class="form-input" />
-        <label class="form-label" for="content">Content</label>
-        <input name="content" type="text" value="{{post.content}}" class="form-input" style = "width: 70%"/>
-       <div class="buttons">
-        <button type="submit" class="button is-success">Update Post</button>
-        <button type="button" class="button is-success">Delete Post</button>
-        </div>
-    </form>
-</div>
-
-
-<script src="/javascript/edit-post.js"></script>
-<script src="/javascript/delete-post.js"></script>
