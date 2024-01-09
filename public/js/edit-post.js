@@ -4,19 +4,18 @@ async function editFormHandler(event) {
     const title = document.querySelector('input[name="post-title"]').value.trim();
     const content = document.querySelector('input[name="content"]').value.trim();
 
-    console.log(title);
-    console.log(content);
+    //console.log(title);
+    //console.log(content);
 
-    const id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
+    //const id = window.location.toString().split('/')[
+      //window.location.toString().split('/').length - 1
+    //];
       
       const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
-          post_id: id,
-          title: title.value,
-          content: content.value
+        title,
+        content
         }),
         headers: {
           'Content-Type': 'application/json'
