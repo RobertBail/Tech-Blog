@@ -4,7 +4,7 @@ require("dotenv").config();
 let sequelize;
 
 if(process.env.NODE_ENV === 'production'){
-    sequelize = new Sequelize({dialect: 'postgres'})}
+    sequelize = new Sequelize({dialect: 'mysql'})}
  else {
     sequelize = new Sequelize(
         process.env.DB_NAME,
