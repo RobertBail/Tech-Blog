@@ -3,7 +3,7 @@ require("dotenv").config();
 
 let sequelize;
 
-if(process.env.NODE_ENV === 'production'){
+if(process.env.PORT === 'production'){
     sequelize = new Sequelize({dialect: 'mysql'})}
  else {
     sequelize = new Sequelize(
